@@ -19,19 +19,23 @@
 
   let modules;
   let svg;
+  let cellSize;
+  let qrWidth;
 
   // React to changes in url, version, or correction
   $: {
     modules = qr(url, { version, correction });
     svg = generateSvg(modules, size, color, background);
+    qrWidth = modules ? modules.length : 0;  // actual number of cells
+    cellSize = size / qrWidth;
   }
 </script>
 
 {#if output === "html"}
-  <div class="qr" style={`--size: ${pxConvert(size)}; --color: ${color}`}>
+  <div class="qr" style={`width: ${pxConvert(size)}; height: ${pxConvert(size)}; --color: ${color}; grid-template-columns: repeat(${qrWidth}, ${pxConvert(cellSize)})`}>
     {#each modules as row}
       {#each row as col}
-        <div class="c {col ? 'f' : ''}" />
+        <div class="c {col ? 'f' : ''}" style={`width: ${pxConvert(cellSize)}; height: ${pxConvert(cellSize)}`} />
       {/each}
     {/each}
   </div>
