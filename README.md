@@ -1,6 +1,6 @@
 # headless-qr-webcomponent
 
-A simple web component for QR code generation. Using Rich Harris's [headless-qr](https://github.com/Rich-Harris/headless-qr)
+A simple web component for QR code generation forked from ahmetozantekin's [headless-qr-webcomponent](https://github.com/ahmetozantekin/headless-qr-webcomponent) and using Rich Harris's [headless-qr](https://github.com/Rich-Harris/headless-qr)
 
 #### Usage
 
