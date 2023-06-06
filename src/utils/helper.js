@@ -7,8 +7,8 @@ export const pxConvert = (size, reverse = false) => {
 };
 
 export const generateSvg = (modules, size, color, backgroundColor) => {
-  const QR_STATIC_SIZE = 33;
-  const cellSize = (pxConvert(size, true) / QR_STATIC_SIZE).toFixed(5);
+  // Calculate the cell size based on the number of modules in the QR code
+  const cellSize = (pxConvert(size, true) / modules.length).toFixed(5);
   let svgStr = `<svg xmlns:ev="http://www.w3.org/2001/xml-events" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">`;
 
   for (let row = 0; row < modules.length; row++) {

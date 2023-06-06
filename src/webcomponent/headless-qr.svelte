@@ -14,10 +14,17 @@
   export let background = Config.backgroundColor;
   export let size = Config.size;
   export let output = Config.output;
+  export let version = Config.QR.version;
+  export let correction = Config.QR.correction;
 
-  const modules = qr(url, Config.QR);
+  let modules;
+  let svg;
 
-  const svg = generateSvg(modules, size, color, background);
+  // React to changes in url, version, or correction
+  $: {
+    modules = qr(url, { version, correction });
+    svg = generateSvg(modules, size, color, background);
+  }
 </script>
 
 {#if output === "html"}
