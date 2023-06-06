@@ -30,6 +30,6 @@ A simple web component for QR code generation forked from ahmetozantekin's [head
 | size       |   string    | 250px   |
 | output     | svg or html | svg     |
 
-#### Preview
+#### Preview (Original, ahmetozantekin)
 [demo](https://headless-qr-webcomponent.vercel.app/)
 
